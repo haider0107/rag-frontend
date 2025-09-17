@@ -1,0 +1,531 @@
+/* =========================
+   Theme variables (defaults)
+   ========================= */
+:root {
+  --page-bg: #f3f4f6;
+  --header-bg: #0f172a;
+  --header-text: #f9fafb;
+
+  --button-bg: #2563eb;
+  --button-hover: #1e40af;
+
+  --input-border: #cbd5e1;
+  --chat-border: #e2e8f0;
+
+  --user-msg: #2563eb;
+  --assistant-msg: #f1f5f9;
+  --assistant-text: #111;
+
+  --modal-overlay: rgba(15, 23, 42, 0.6);
+  --close-btn: #334155;
+}
+
+/* =========================
+   Theme presets (swap by adding class to .App)
+   ========================= */
+
+// /* Default (keeps root values) */
+// .theme-default {
+// }
+
+/* Purple theme */
+.theme-purple {
+  --page-bg: #fbf7ff;
+  --header-bg: linear-gradient(90deg, #4c1d95, #7c3aed);
+  --header-text: #fdf4ff;
+
+  --button-bg: #7c3aed;
+  --button-hover: #5b21b6;
+
+  --input-border: #e9d9ff;
+  --chat-border: #efe8ff;
+
+  --user-msg: #7c3aed;
+  --assistant-msg: #ede9fe;
+  --assistant-text: #1e1b4b;
+
+  --modal-overlay: rgba(74, 20, 140, 0.6);
+  --close-btn: #3b0d66;
+}
+
+/* Teal theme */
+.theme-teal {
+  --page-bg: #f0fdfa;
+  --header-bg: #0d9488;
+  --header-text: #ecfeff;
+
+  --button-bg: #06b6d4;
+  --button-hover: #0e7490;
+
+  --input-border: #cffafe;
+  --chat-border: #dffaf9;
+
+  --user-msg: #0d9488;
+  --assistant-msg: #ecfeff;
+  --assistant-text: #083344;
+
+  --modal-overlay: rgba(3, 105, 103, 0.6);
+  --close-btn: #004d47;
+}
+
+/* Amber / Warm theme */
+.theme-amber {
+  --page-bg: #fff7ed;
+  --header-bg: #b45309;
+  --header-text: #fffbeb;
+
+  --button-bg: #f97316;
+  --button-hover: #c2410c;
+
+  --input-border: #ffe7d2;
+  --chat-border: #ffe9d6;
+
+  --user-msg: #f97316;
+  --assistant-msg: #fff7ed;
+  --assistant-text: #451a03;
+
+  --modal-overlay: rgba(160, 82, 0, 0.45);
+  --close-btn: #7a2f00;
+}
+
+/* =========================
+   Main styles (use variables)
+   ========================= */
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-width: 100vw;
+  font-family: "Inter", sans-serif;
+  background: var(--page-bg, #f3f4f6);
+  color: #111;
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: var(--header-bg, #0f172a);
+    color: var(--header-text, #f9fafb);
+    flex-wrap: wrap;
+
+    h1 {
+      margin: 0;
+      font-size: 1.2rem;
+      font-weight: 400;
+
+      @media (min-width: 640px) {
+        font-size: 1.5rem;
+        font-weight: 600;
+      }
+    }
+
+    .auth {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+
+      @media (min-width: 640px) {
+        margin-top: 0;
+      }
+    }
+
+    button {
+      padding: 0.6rem 0.7rem;
+      border: none;
+      background: var(--button-bg, #2563eb);
+      color: white;
+      font-weight: 500;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s;
+
+      @media (min-width: 640px) {
+        padding: 0.6rem 1rem;
+      }
+
+      &:hover {
+        background: var(--button-hover, #1e40af);
+      }
+    }
+  }
+
+  .landing {
+    max-width: 700px;
+    margin: 3rem auto;
+    padding: 2rem;
+    text-align: center;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+
+    h2 {
+      font-size: 1.8rem;
+      color: #1e293b;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #374151;
+      margin-bottom: 1rem;
+    }
+  }
+
+  .rss-input {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 1rem auto;
+    width: 90%;
+    max-width: 600px;
+
+    input {
+      flex: 1;
+      padding: 0.6rem 1rem;
+      border: 1px solid var(--input-border, #cbd5e1);
+      border-radius: 6px;
+      font-size: 1rem;
+      background: white;
+      color: #111;
+    }
+
+    button {
+      padding: 0.6rem 1rem;
+      border: none;
+      background: var(--button-bg, #2563eb);
+      color: white;
+      font-weight: 500;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s;
+
+      &:hover {
+        background: var(--button-hover, #1e40af);
+      }
+    }
+  }
+
+  .chat-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+
+    .chat-box {
+      background: white;
+      border: 2px solid var(--chat-border, #e2e8f0);
+      border-radius: 8px;
+      padding: 1rem;
+      width: 100%;
+      max-width: 800px;
+      display: flex;
+      flex-direction: column;
+      height: 70vh;
+
+      @media (max-width: 768px) {
+        height: 60vh;
+        max-width: 95%;
+      }
+
+      .messages {
+        flex: 1;
+        overflow-y: auto;
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+
+        .message {
+          margin: 0.5rem 0;
+          padding: 0.5rem 0.8rem;
+          border-radius: 6px;
+          max-width: 80%;
+          line-height: 1.6;
+
+          &.user {
+            align-self: flex-end;
+            padding: 0.01rem 0.8rem;
+
+            background: var(--user-msg, #2563eb);
+            color: #fff;
+          }
+
+          &.assistant {
+            align-self: flex-start;
+            background: var(--assistant-msg, #f1f5f9);
+            color: var(--assistant-text, #111);
+
+            p {
+              margin: 0.5rem 0; // space between paragraphs
+            }
+
+            a {
+              color: #2563eb;
+              font-weight: 500;
+              text-decoration: none;
+
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+
+            &.typing {
+              font-style: italic;
+              color: #555;
+              position: relative;
+
+              &::after {
+                content: "";
+                display: inline-block;
+                width: 1em;
+                text-align: left;
+                animation: typingDots 1s infinite steps(3, end);
+              }
+            }
+          }
+        }
+
+        // ✅ add loading and suggestions here
+        .loading {
+          text-align: center;
+          color: #555;
+          font-size: 0.95rem;
+          margin-top: 1rem;
+        }
+
+        .suggestions {
+          text-align: center;
+          margin-top: 2rem;
+          color: #444;
+
+          p {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+          }
+
+          ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            li {
+              background: #f3f4f6;
+              border-radius: 6px;
+              padding: 0.6rem 1rem;
+              margin: 0.4rem auto;
+              display: inline-block;
+              cursor: pointer;
+              transition: background 0.2s;
+
+              &:hover {
+                background: #e5e7eb;
+              }
+            }
+          }
+        }
+      }
+
+      .input-area {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+
+        input {
+          flex: 1;
+          padding: 0.6rem 1rem;
+          border: 1px solid var(--input-border, #cbd5e1);
+          border-radius: 6px;
+          font-size: 1rem;
+          min-width: 200px;
+        }
+
+        button {
+          padding: 0.6rem 1.2rem;
+          border: none;
+          background: var(--button-bg, #2563eb);
+          color: white;
+          font-weight: 500;
+          border-radius: 6px;
+          cursor: pointer;
+          transition: background 0.2s;
+
+          &:hover {
+            background: var(--button-hover, #1e40af);
+          }
+        }
+      }
+    }
+  }
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--modal-overlay, rgba(15, 23, 42, 0.6));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 1rem;
+
+  .modal-content {
+    border-radius: 8px;
+    padding: 2rem;
+    // background: white;
+    max-width: 400px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+
+    @media (max-width: 480px) {
+      padding: 1rem;
+      max-width: 95%;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 40px;
+      right: 40px;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--close-btn, #334155);
+    }
+  }
+}
+
+.error-popup {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #f87171; // red-400
+  color: #fff;
+  padding: 0.7rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 10000;
+  animation: slideUp 0.3s ease-out;
+
+  .error-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    p {
+      margin: 0;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    button {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: transform 0.2s;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+// Keyframes (add outside .messages block)
+@keyframes typingDots {
+  0% {
+    content: ".";
+  }
+  33% {
+    content: "..";
+  }
+  66% {
+    content: "...";
+  }
+  100% {
+    content: ".";
+  }
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-content.rss-modal {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+
+  p {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #333;
+  }
+
+  button {
+    margin-top: 1rem;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    background: #2563eb;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 500;
+
+    &:hover {
+      background: #1d4ed8;
+    }
+  }
+
+  .loader {
+    margin: 0 auto;
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #2563eb;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
