@@ -34,6 +34,8 @@ export function useChat() {
   }
 
   useEffect(() => {
+    if (!getToken) return;
+
     loadHistory();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [getToken]);
