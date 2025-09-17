@@ -36,7 +36,7 @@ export function useChat() {
   useEffect(() => {
     loadHistory();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [getToken]);
 
   async function resetChat() {
     setLoadingReset(true);
