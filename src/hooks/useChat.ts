@@ -22,6 +22,7 @@ export function useChat() {
     setLoadingHistory(true);
     try {
       const token = await getToken();
+      if (!token) return;
       const data = await fetchChatHistory(token);
       if (data?.success && Array.isArray(data.history)) {
         setMessages(data.history);
