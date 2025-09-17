@@ -1,6 +1,6 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, type DependencyList } from "react";
 
-export function useScrollToBottom<T = unknown>(deps: any[] = []) {
+export function useScrollToBottom(deps: DependencyList = []) {
   const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
