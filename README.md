@@ -26,11 +26,13 @@ A modern React frontend application for the RAG (Retrieval-Augmented Generation)
 ## 🚀 Demo
 
 <!-- TODO: Add demo link here -->
-**Live Demo**: Coming Soon...
+
+**Live Demo**: [![Watch the video](https://img.youtube.com/vi/Bff3ajzOvrE/0.jpg)](https://www.youtube.com/watch?v=Bff3ajzOvrE)
 
 ## 📋 Prerequisites
 
 Before you begin, ensure you have the following installed:
+
 - [Node.js](https://nodejs.org/) (v18 or higher)
 - [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
 - Access to the RAG Backend API (see backend README for setup)
@@ -98,6 +100,7 @@ npm run preview
 ### Supported RSS Feeds
 
 The system works with most standard RSS feeds. Popular examples:
+
 - Times of India: `https://timesofindia.indiatimes.com/rssfeedstopstories.cms`
 - BBC News: `http://feeds.bbci.co.uk/news/rss.xml`
 - CNN: `http://rss.cnn.com/rss/edition.rss`
@@ -211,15 +214,18 @@ The application uses a theme system with CSS variables. Current theme: `theme-pu
 ### Common Issues
 
 1. **Authentication Errors**
+
    - Check Clerk publishable key in `.env`
    - Verify Clerk dashboard configuration
 
 2. **API Connection Issues**
+
    - Ensure backend server is running
    - Check `VITE_SERVER_URL` in `.env`
    - Verify CORS settings on backend
 
 3. **Build Errors**
+
    - Run `npm install` to ensure dependencies are installed
    - Check TypeScript errors with `npm run lint`
 
@@ -230,6 +236,7 @@ The application uses a theme system with CSS variables. Current theme: `theme-pu
 ### Environment Variables
 
 Ensure all required environment variables are set:
+
 - `VITE_CLERK_PUBLISHABLE_KEY` - Your Clerk publishable key
 - `VITE_SERVER_URL` - Backend API URL (default: http://localhost:3000)
 
